@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmotionSense | Neural Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="glass-container">
+    <header>
+        <div class="logo-area">
+            <i class="fas fa-microchip"></i>
+            <h1>Emotion<span>Sense</span></h1>
+        </div>
+        <p class="tagline">Neural sentiment mapping & linguistic analysis</p>
+    </header>
+
+    <main class="content-grid">
+        <section class="card input-card">
+            <div class="card-header">
+                <i class="fas fa-comment-dots"></i> <h3>Neural Input</h3>
+            </div>
+            <textarea id="userInput" placeholder="Input text for emotional decomposition..."></textarea>
+            <button id="analyzeBtn" onclick="analyzeEmotion()">
+                <span>Run Analysis</span>
+                <i class="fas fa-radar"></i>
+            </button>
+        </section>
+
+        <div id="loading" class="loading-overlay hidden">
+            <div class="spinner"></div>
+            <p>Decoding emotional frequencies...</p>
+        </div>
+
+        <section id="result" class="result-container hidden">
+            <div class="stats-grid">
+                <div class="card stat-card">
+                    <label>Primary Signal</label>
+                    <h2 id="primaryEmotion">-</h2>
+                </div>
+                <div class="card stat-card">
+                    <label>Secondary Signal</label>
+                    <h2 id="secondaryEmotion">-</h2>
+                </div>
+                <div class="card stat-card">
+                    <label>Signal Accuracy</label>
+                    <h2 id="confidence">-</h2>
+                </div>
+            </div>
+
+            <div class="card visualizer-card">
+                <div class="card-header"><i class="fas fa-wave-square"></i> <h3>Emotional Intensity Scale</h3></div>
+                <div class="spectrum-wrapper">
+                    <div class="label-row">
+                        <span class="label-neg">Negative</span>
+                        <span class="label-neu">Neutral</span>
+                        <span class="label-pos">Positive</span>
+                    </div>
+                    <div class="spectrum-bar">
+                        <div id="arrow" class="indicator"><div class="pulse"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card bot-card">
+                <div class="card-header"><i class="fas fa-brain"></i> <h3>Emotional Analysis Insight</h3></div>
+                <p id="botReply"></p>
+            </div>
+
+            <div id="driftSection" class="card drift-card hidden">
+                <h3>Linguistic Flow</h3>
+                <div class="timeline">
+                    <div class="time-node"><span>Origin</span><p id="driftStart"></p></div>
+                    <div class="time-node"><span>Midpoint</span><p id="driftMiddle"></p></div>
+                    <div class="time-node"><span>Conclusion</span><p id="driftEnd"></p></div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
